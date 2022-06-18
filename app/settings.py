@@ -36,6 +36,9 @@ TWITTER_ACCESS_TOKEN_SECRET = "Se22nDHXdx0sj9m8resqT1wPGeDFFKSWthWQgmVDqItOn"
 TWITTER_OAUTH_API="https://api.twitter.com/oauth/"
 
 CASHAPP_ENVIROMENT="sandbox"
+CASHAPP_APPLICATION_ID="sandbox-sq0idb-Y68PlHg_DFw53_smhsTCzw"
+CASHAPP_APPLICATION_SECRET="sandbox-sq0csb-TyrTewa0j4xEDCYr2dy_XSUqvD0jI0gJLRXVTtZrY4M"
+CASHAPP_SANDBOX_URL="https://connect.squareupsandbox.com"
 
 NEXT_REDIRECT_URL="http://localhost:3000/"
 NEXT_LOGIN_REDIRECT_URL="http://localhost:3000/login"

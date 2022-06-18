@@ -10,6 +10,7 @@ def list_user_payments(access_token):
     result = client.payments.list_payments()
 
     if result.is_success():
+        print("[PAYMENT RESULT]", result)
         return result.body
     elif result.is_error():
         print('Cashapp List Payments - ERROR: '.format(result.body))

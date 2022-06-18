@@ -5,6 +5,9 @@ from square.client import Client
 consumer_key = settings.TWITTER_CONSUMER_KEY
 consumer_secret = settings.TWITTER_CONSUMER_SECRET
 twitter_oauth_api = settings.TWITTER_OAUTH_API
+cashapp_application_id = settings.CASHAPP_APPLICATION_ID
+cashapp_application_secret = settings.CASHAPP_APPLICATION_SECRET
+cashapp_sandbox_url = settings.CASHAPP_SANDBOX_URL
 
 
 def twitter_get_oauth_request_token():
@@ -33,7 +36,21 @@ def twitter_get_access_token(oauth_token, verifier):
     return access_tokens
 
 
-def cashapp_authenticate_application(access_token):
-    client = Client(access_token=access_token, environment='sandbox')
-    access_token = ""
-    return access_token
+def cashapp_get_user_authorization():
+    url = "{0}/oauth2/authorize?client_id={1}".format(cashapp_sandbox_url, cashapp_application_id)
+    return url
+
+
+def cashapp_get_access_token(authorization_code):
+    client = Client( environment = "sandbox" )
+    body = {}
+    body['client_id'] = cashapp_application_id
+    body['client_secret'] = cashapp_application_secret
+    body['code'] = authorization_code
+    body['grant_type'] = 'authorization_code'
+    response = client.o_auth.obtain_token(body)
+    if response.is_success():
+        print("CASH APP ACCESS TOKEN", response.body)
+        return response.body
+    else:
+        return

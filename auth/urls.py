@@ -1,6 +1,6 @@
 from django.urls import include, re_path
 from rest_framework import routers
-from .views import InitiateTwitterAuth, TwitterAuthCallback, TwitterLogOut, InitiateCashAppAuth
+from .views import InitiateTwitterAuth, TwitterAuthCallback, TwitterLogOut, InitiateCashAppAuth, CashAppAuthCallback
 
 app_name = 'auth'
 
@@ -14,6 +14,7 @@ urlpatterns = (
 
     # DEV: https://localhost:4000/v1/auth/cashapp/authorize/
     re_path(r'^v1/auth/cashapp/authorize/', InitiateCashAppAuth.as_view(), name='cashapp-auth-authorize'),
+    re_path(r'^v1/auth/cashapp/callback/', CashAppAuthCallback.as_view(), name='cashapp-auth-callback'),
 
     # DEV: https://localhost:4000/v1/auth/logout
     re_path(r'^v1/auth/logout/', TwitterLogOut.as_view(), name='twitter-auth-logout'),

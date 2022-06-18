@@ -2,7 +2,7 @@ from django.urls import include, re_path
 from rest_framework import routers
 from .views import CashAppListPayments
 
-app_name = 'api'
+app_name = 'cashapp_api'
 
 router = routers.DefaultRouter()
 

@@ -2,7 +2,7 @@ from django.urls import include, re_path
 from rest_framework import routers
 from .views import TwitterDirectMessageListView, TwitterDirectMessageGetView, TwitterDirectMessageRemoveView, TwitterDirectMessageSendView
 
-app_name = 'api'
+app_name = 'twitter_api'
 
 router = routers.DefaultRouter()
 
